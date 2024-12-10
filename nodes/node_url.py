@@ -51,13 +51,9 @@ class SaveImageURL:
             with requests.put(url, data=buffer.read()) as r:
                 r.raise_for_status()
 
-            results.append({
-                "filename": url,
-                "subfolder": "",
-                "type": "output"
-            })
+            results.append(url)
 
-        return {}
+        return { "ui": { "url_list": results } }
 
 
 def pil2numpy(image: Image.Image):

@@ -70,7 +70,7 @@ class SaveImageToS3:
                     for x in extra_pnginfo:
                         metadata.add_text(x, json.dumps(extra_pnginfo[x]))
 
-            file_path = "%s_%i.png"%(pathname, batch_number)
+            file_path = "%s-%i.png"%(pathname, batch_number)
             temp_file = None
             try:
                 # Create a temporary file
@@ -84,18 +84,14 @@ class SaveImageToS3:
                     file_path = awss3_upload_file(client, s3_bucket, temp_file_path, file_path)
                     
                     # Add the result to the results list
-                    results.append({
-                        "filename": file_path,
-                        "subfolder": "",
-                        "type": "output"
-                    })
+                    results.append(file_path)
 
             finally:
                 # Delete the temporary file
                 if temp_file_path and os.path.exists(temp_file_path):
                     os.remove(temp_file_path)
 
-        return {}
+        return { "ui": { "path_list": results } }
 
 
 # LoadImageFromS3
