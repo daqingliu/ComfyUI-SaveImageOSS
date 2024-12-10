@@ -51,7 +51,7 @@ class SaveImageToS3:
                 }
     RETURN_TYPES = ()
     FUNCTION = "save_image_to_s3"
-    CATEGORY = "api/image"
+    CATEGORY = "oss/image"
     OUTPUT_NODE = True
     TITLE = "Save Image (S3)"
 
@@ -114,7 +114,7 @@ class LoadImageFromS3:
     RETURN_TYPES = ("IMAGE",)
     OUTPUT_IS_LIST = (False, )
     FUNCTION = "load_image_from_s3"
-    CATEGORY = "api/image"
+    CATEGORY = "oss/image"
 
     def load_image_from_s3(self, region, aws_ak, aws_sk, endpoint_url, s3_bucket, pathname):
         client = awss3_init_client(region, aws_ak, aws_sk, endpoint_url)
