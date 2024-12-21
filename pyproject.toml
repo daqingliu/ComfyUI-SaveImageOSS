@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-saveimageoss"
+description = "Save images directly to URL, e.g., OSS. Just input the url in the text box!"
+version = "1.0.0"
+license = {file = "LICENSE"}
+dependencies = ["boto3"]
+
+[project.urls]
+Repository = "https://github.com/daqingliu/ComfyUI-SaveImageOSS"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-SaveImageOSS"
+Icon = ""
